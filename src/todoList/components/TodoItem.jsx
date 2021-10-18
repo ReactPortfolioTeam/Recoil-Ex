@@ -5,13 +5,6 @@ import { todoListState } from "../state/atom/todoListState";
 function TodoItem({ item }) {
     const [todoList, setTodoList] = useRecoilState(todoListState);
     const index = todoList.findIndex((listItem) => listItem === item);
-    console.log(todoList);
-    useEffect(() => {
-        if (todoList.length === 0 && localStorage["todoList"]) {
-            console.log("here");
-            setTodoList(JSON.parse(localStorage.getItem("todoList")));
-        }
-    }, []);
 
     const editItemText = ({ target: { value } }) => {
         const newList = replaceItemAtIndex(todoList, index, {
@@ -43,6 +36,8 @@ function TodoItem({ item }) {
                 checked={item.isComplete}
                 onChange={toggleItemCompletion}
             />
+            <span></span>
+
             <button className="delete" onClick={deleteItem}>
                 X
             </button>

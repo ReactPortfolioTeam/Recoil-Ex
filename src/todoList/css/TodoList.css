@@ -1,11 +1,11 @@
 .Container {
     display: flex;
-    flex-direction: row-reverse;
+
     justify-content: center;
 }
 .TodoList {
-    width: 50%;
-    min-height: 50vh;
+    width: calc(900vw / 19.2);
+    min-height: calc(900vw / 19.2);
     height: auto;
     border: 1px solid black;
 }
@@ -28,30 +28,54 @@ button {
 }
 
 .todo-item {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    padding: calc(40vw / 19.2) calc(40vw / 19.2) 0;
+    position: relative;
 }
 .add {
     background-color: #5bc0de;
     color: white;
 }
 .delete {
-    background-color: #d9534f;
-    color: white;
+    display: none;
 }
-input[type="text"] {
-    width: 200px;
-    height: 60px;
+.todo-item > input[type="text"] {
+    width: 100%;
+    height: calc(160vw / 19.2);
     padding: 20px;
     box-sizing: border-box;
-    background-color: #666;
-    border: 1px solid white;
-    color: white;
-    border-radius: 4px;
-    font-size: 20px;
+    background-color: #fff;
+    border: 0.5px solid #666;
+    color: black;
+    border-radius: 35px;
+    font-size: calc(48vw / 19.2);
 }
 input[type="checkbox"] {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
+    position: absolute;
+    width: calc(65vw / 19.2);
+    height: calc(65vw / 19.2);
+    line-height: 0;
+    opacity: 0;
+    top: 36%;
+    right: 7%;
+    z-index: 500;
+}
+input[type="checkbox"] ~ span {
+    position: absolute;
+    width: calc(60vw / 19.2);
+    height: calc(60vw / 19.2);
+    top: 41%;
+    right: 8%;
+    border: 0.5px solid #666;
+    border-radius: 50%;
+    transition: all 0.5s;
+    box-shadow: 4px 4px 8px 1px rgba(0, 0, 0, 0.25);
+}
+input[type="checkbox"]:checked ~ span {
+    background-color: cornflowerblue;
+}
+
+input,
+div {
+    box-sizing: border-box;
 }

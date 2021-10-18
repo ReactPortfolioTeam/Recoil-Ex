@@ -20,9 +20,9 @@ function TodoList() {
     return (
         <div className="Container">
             <TodoListStats />
+            {/* <TodoListFilters />
+            <TodoItemCreator /> */}
             <div className="TodoList">
-                <TodoListFilters />
-                <TodoItemCreator />
                 {todoList.map((todoItem) => (
                     <TodoItem key={todoItem.id} item={todoItem} />
                 ))}
