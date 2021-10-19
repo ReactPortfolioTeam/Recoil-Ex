@@ -1,56 +1,55 @@
-import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { todoListState } from "../state/atom/todoListState";
 
 function TodoItem({ item }) {
-    const [todoList, setTodoList] = useRecoilState(todoListState);
-    const index = todoList.findIndex((listItem) => listItem === item);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const index = todoList.findIndex((listItem) => listItem === item);
 
-    const editItemText = ({ target: { value } }) => {
-        const newList = replaceItemAtIndex(todoList, index, {
-            ...item,
-            text: value,
-        });
-        setTodoList(newList);
-    };
+  const editItemText = ({ target: { value } }) => {
+    const newList = replaceItemAtIndex(todoList, index, {
+      ...item,
+      text: value,
+    });
+    setTodoList(newList);
+  };
 
-    const toggleItemCompletion = () => {
-        const newList = replaceItemAtIndex(todoList, index, {
-            ...item,
-            isComplete: !item.isComplete,
-        });
+  const toggleItemCompletion = () => {
+    const newList = replaceItemAtIndex(todoList, index, {
+      ...item,
+      isComplete: !item.isComplete,
+    });
 
-        setTodoList(newList);
-    };
-    const deleteItem = () => {
-        const newList = removeItemAtIndex(todoList, index);
+    setTodoList(newList);
+  };
+  const deleteItem = () => {
+    const newList = removeItemAtIndex(todoList, index);
 
-        setTodoList(newList);
-    };
+    setTodoList(newList);
+  };
 
-    return (
-        <div className="todo-item">
-            <input type="text" value={item.text} onChange={editItemText} />
-            <input
-                type="checkbox"
-                checked={item.isComplete}
-                onChange={toggleItemCompletion}
-            />
-            <span></span>
+  return (
+    <div className="todo-item">
+      <input type="text" value={item.text} onChange={editItemText} />
+      <input
+        type="checkbox"
+        checked={item.isComplete}
+        onChange={toggleItemCompletion}
+      />
+      <span></span>
 
-            <button className="delete" onClick={deleteItem}>
-                X
-            </button>
-        </div>
-    );
+      <button className="delete" onClick={deleteItem}>
+        X
+      </button>
+    </div>
+  );
 }
 
 function replaceItemAtIndex(arr, index, newValue) {
-    return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+  return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
 }
 
 function removeItemAtIndex(arr, index) {
-    return [...arr.slice(0, index), ...arr.slice(index + 1)];
+  return [...arr.slice(0, index), ...arr.slice(index + 1)];
 }
 
 export default TodoItem;

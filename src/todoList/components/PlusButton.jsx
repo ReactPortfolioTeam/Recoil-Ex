@@ -1,7 +1,13 @@
 import React from "react";
 
-const PlusButton = () => {
-    return <div></div>;
+const PlusButton = ({ onClick }) => {
+  return (
+    <div className="plus-button-container">
+      <button type="button" onClick={onClick}>
+        +
+      </button>
+    </div>
+  );
 };
 
 export default PlusButton;

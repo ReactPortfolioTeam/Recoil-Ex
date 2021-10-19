@@ -1,81 +1,205 @@
 .Container {
-    display: flex;
-
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: calc(900vw / 19.2);
+  height: auto;
+  border: 1px solid black;
 }
 .TodoList {
-    width: calc(900vw / 19.2);
-    min-height: calc(900vw / 19.2);
-    height: auto;
-    border: 1px solid black;
+  width: 100%;
+  height: auto;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  padding: 45px;
+  justify-content: flex-start;
+  position: relative;
+}
+.header > h1 {
+  position: absolute;
+  line-height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header > .progress-bar {
+  position: absolute;
+  left: 40px;
+  top: 100%;
+  width: calc(100% - 80px);
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.progress-bar > div {
+  width: calc(100% + 2px);
+  height: calc(100% + 1px);
+  background-color: #67a3fd;
+  border-radius: 8px;
+
+  transition: all 0.5s;
 }
 
 .creator {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 button {
-    width: fit-content;
-    margin-left: 10px;
-    min-width: 60px;
-    height: 60px;
-    font-size: 20px;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 4px;
+  width: fit-content;
+  margin-left: 10px;
+  min-width: 60px;
+  height: 60px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
 }
 
 .todo-item {
-    width: 100%;
-    padding: calc(40vw / 19.2) calc(40vw / 19.2) 0;
-    position: relative;
+  width: 100%;
+  padding: calc(40vw / 19.2) calc(40vw / 19.2) 0;
+  position: relative;
 }
 .add {
-    background-color: #5bc0de;
-    color: white;
+  background-color: #5bc0de;
+  color: white;
 }
 .delete {
-    display: none;
+  display: none;
 }
 .todo-item > input[type="text"] {
-    width: 100%;
-    height: calc(160vw / 19.2);
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border: 0.5px solid #666;
-    color: black;
-    border-radius: 35px;
-    font-size: calc(48vw / 19.2);
+  width: 100%;
+  height: calc(160vw / 19.2);
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 0.5px solid #666;
+  color: black;
+  border-radius: 35px;
+  font-size: calc(48vw / 19.2);
 }
 input[type="checkbox"] {
-    position: absolute;
-    width: calc(65vw / 19.2);
-    height: calc(65vw / 19.2);
-    line-height: 0;
-    opacity: 0;
-    top: 36%;
-    right: 7%;
-    z-index: 500;
+  position: absolute;
+  width: calc(65vw / 19.2);
+  height: calc(65vw / 19.2);
+  line-height: 0;
+  opacity: 0;
+  top: 42%;
+  right: 7.5%;
+  z-index: 500;
 }
 input[type="checkbox"] ~ span {
-    position: absolute;
-    width: calc(60vw / 19.2);
-    height: calc(60vw / 19.2);
-    top: 41%;
-    right: 8%;
-    border: 0.5px solid #666;
-    border-radius: 50%;
-    transition: all 0.5s;
-    box-shadow: 4px 4px 8px 1px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  width: calc(60vw / 19.2);
+  height: calc(60vw / 19.2);
+  top: 45%;
+  right: 8%;
+  border: 0.5px solid #666;
+  border-radius: 50%;
+  transition: all 0.5s;
+  box-shadow: 4px 4px 8px 1px rgba(0, 0, 0, 0.25);
 }
 input[type="checkbox"]:checked ~ span {
-    background-color: cornflowerblue;
+  background-color: #67a3fd;
+}
+input[type="checkbox"]:checked ~ span:after {
+  width: 5px;
+  height: 5px;
+  background-color: white;
 }
 
 input,
 div {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.plus-button-container {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plus-button-container > button {
+  background-color: #67a3fd;
+  border-radius: 100%;
+  width: calc(140vw / 19.2);
+  height: calc(140vw / 19.2);
+  font-size: calc(110vw / 19.2);
+  cursor: pointer;
+  color: white;
+}
+.plus-button-container > button:active {
+  opacity: 0.7;
+}
+
+.filter-button {
+  position: relative;
+  display: inline-block;
+  width: calc(50vw / 19.2);
+  height: calc(50vw / 19.2);
+  cursor: pointer;
+}
+
+.filter-button:active {
+  opacity: 0.7;
+}
+.filter-button > div {
+  height: calc(20vw / 19.2);
+  width: calc(20vw / 19.2);
+  border-radius: 4px;
+  border: 1px solid #94abff;
+  box-sizing: border-box;
+  position: absolute;
+}
+.filter-button > div:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+
+.filter-button > div:nth-of-type(2) {
+  top: 0;
+  right: 0;
+}
+
+.filter-button > div:nth-of-type(3) {
+  top: 50%;
+  left: 0;
+}
+.filter-button > div:nth-of-type(4) {
+  top: 50%;
+  right: 0;
+}
+
+.creator {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+}
+.creator > h1 {
+  text-align: center;
+}
+.creator > textarea {
+  height: 200px;
+  padding: 20px;
+}
+
+.modal {
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
