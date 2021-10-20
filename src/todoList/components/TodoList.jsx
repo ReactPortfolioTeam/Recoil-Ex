@@ -9,6 +9,7 @@ import FilterButton from "./FilterButton";
 import TodoItemCreator from "./TodoItemCreator";
 import { todoListFilterState } from "../state/atom/todoListFilterState";
 import ProgressBar from "./ProgressBar";
+import TodoListFilters from "./TodoListFilters";
 
 function TodoList() {
   const todoList = useRecoilValue(filteredTodoListState);
@@ -16,7 +17,7 @@ function TodoList() {
   const [localTodoList, setLocalTodoList] = useRecoilState(todoListState);
 
   const [isAddPage, setIsAddPage] = useState(false);
-  const [isFilterPage, setIsFilterPAge] = useState(false);
+  const [isFilterPage, setIsFilterPage] = useState(false);
 
   useEffect(() => {
     if (localTodoList.length === 0 && localStorage["todoList"]) {
@@ -27,24 +28,25 @@ function TodoList() {
   return (
     <div className="Container">
       <div className="header">
-        <FilterButton
-          onClick={() => setIsFilterPAge(!isFilterPage)}
-        ></FilterButton>
+        <FilterButton onClick={() => setIsFilterPage(!isFilterPage)} />
         <h1>{todoListFilter}</h1>
-        <ProgressBar></ProgressBar>
+        <ProgressBar />
       </div>
       <div className="TodoList">
         {todoList.map((todoItem, index) => (
-          <TodoItem key={todoItem} item={todoItem} />
+          <TodoItem key={todoItem.id} item={todoItem} />
         ))}
-        <PlusButton onClick={() => setIsAddPage(!isAddPage)}></PlusButton>
+        <PlusButton onClick={() => setIsAddPage(!isAddPage)} />
       </div>
 
       {isAddPage && (
-        <TodoItemCreator closeModal={(args) => setIsAddPage(args)} />
+        <TodoItemCreator
+          closeModal={(args) => setIsAddPage(args)}
+          Count={todoList.length}
+        />
       )}
       {isFilterPage && (
-        <todoListFilter closeModal={(args) => setIsFilterPAge(args)} />
+        <TodoListFilters closeModal={(args) => setIsFilterPage(args)} />
       )}
     </div>
   );
