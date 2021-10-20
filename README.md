@@ -1,5 +1,6 @@
 # Recoil 관련 예제입니다.
-
+## 배포 
+https://reactportfolioteam.github.io/Recoil-Ex/
 ## 실행 방법
 1. git clone "https://github.com/ReactPortfolioTeam/Recoil-Ex.git"
 2. yarn 
