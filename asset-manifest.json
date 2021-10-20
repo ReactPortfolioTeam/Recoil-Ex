@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ReactPortfolioTeam/Recoil-Ex/static/css/main.ca803f4d.chunk.css",
+    "main.js": "/ReactPortfolioTeam/Recoil-Ex/static/js/main.47b3a3d8.chunk.js",
+    "main.js.map": "/ReactPortfolioTeam/Recoil-Ex/static/js/main.47b3a3d8.chunk.js.map",
+    "runtime-main.js": "/ReactPortfolioTeam/Recoil-Ex/static/js/runtime-main.52e5b172.js",
+    "runtime-main.js.map": "/ReactPortfolioTeam/Recoil-Ex/static/js/runtime-main.52e5b172.js.map",
+    "static/js/2.10897579.chunk.js": "/ReactPortfolioTeam/Recoil-Ex/static/js/2.10897579.chunk.js",
+    "static/js/2.10897579.chunk.js.map": "/ReactPortfolioTeam/Recoil-Ex/static/js/2.10897579.chunk.js.map",
+    "index.html": "/ReactPortfolioTeam/Recoil-Ex/index.html",
+    "static/css/main.ca803f4d.chunk.css.map": "/ReactPortfolioTeam/Recoil-Ex/static/css/main.ca803f4d.chunk.css.map",
+    "static/js/2.10897579.chunk.js.LICENSE.txt": "/ReactPortfolioTeam/Recoil-Ex/static/js/2.10897579.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52e5b172.js",
+    "static/js/2.10897579.chunk.js",
+    "static/css/main.ca803f4d.chunk.css",
+    "static/js/main.47b3a3d8.chunk.js"
+  ]
+}
